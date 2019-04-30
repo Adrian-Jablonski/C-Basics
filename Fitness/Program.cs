@@ -6,7 +6,7 @@ namespace Treehouse.Fitness
   {
       static void Main()
       {
-          int runningTotal = 0;
+          double runningTotal = 0;
           bool keepGoing = true;
         
           // Prompt user for minutes exercised 
@@ -15,12 +15,35 @@ namespace Treehouse.Fitness
         
             string entry = Console.ReadLine();
             
-            if (entry == "quit")
+            if (entry.ToLower() == "quit")
             {
               keepGoing = false;
             }
             else {
-              int minutes = int.Parse(entry);
+              double minutes;
+              try {
+                minutes = double.Parse(entry);
+              } catch(FormatException) {
+                Console.WriteLine("Invalid Input");
+                continue;
+              }
+              
+              if (minutes <= 0) {
+                Console.WriteLine(minutes + " is not an acceptable value.");
+                continue;
+              }
+              else if (minutes <= 10) {
+                Console.WriteLine("Better than nothing, am I right?");
+              }
+              else if (minutes <= 30) {
+                Console.WriteLine("Way to go!");
+              }
+              else if (minutes <= 60) {
+                Console.WriteLine("You must be a ninja warrior!");
+              }
+              else {
+                Console.WriteLine("Okay, now you're just showing off!");
+              }
             
               // Add minutes exercised to total
               runningTotal = runningTotal + minutes;
