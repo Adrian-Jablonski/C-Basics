@@ -22,7 +22,7 @@ namespace TowerDefense
         }
 
         public int DistanceTo(Point point) {
-            DistanceTo(point.X, point.Y);
+            return DistanceTo(point.X, point.Y);
         }
     }
 }
