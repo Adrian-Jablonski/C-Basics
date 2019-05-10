@@ -24,10 +24,13 @@ namespace TowerDefense
                     }
                 );
 
-                MapLocation location = path.GetLocationAt(0);
-                if (location != null) {
-                    Console.WriteLine(location.X + "," + location.Y);
-                }
+                Invader invader = new Invader();
+                MapLocation location = new MapLocation(0, 0, map);
+
+                // invader.SetLocation(location);  // uses method setter
+
+                // invader.Location = location; //uses property setter
+                // location = invader.Location; // uses property getter
             }
             catch (OutOfBoundsException ex) {
                 Console.WriteLine(ex.Message);
